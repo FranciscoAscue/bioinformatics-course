@@ -1,0 +1,32 @@
+{
+	"nodes":[
+		{"id":"215b2f3cae5ac95a","type":"text","text":"Quality Sequencing","x":-1290,"y":-830,"width":220,"height":60,"color":"5"},
+		{"id":"4a34b3759864bba8","type":"text","text":"Trimming lectures","x":-1271,"y":-648,"width":200,"height":60,"color":"5"},
+		{"id":"bbc083137752cc1d","type":"text","text":"Illumina","x":-1763,"y":-741,"width":125,"height":60,"color":"4"},
+		{"id":"84b4b37492c8accd","type":"text","text":"FASTQ","x":-1542,"y":-727,"width":120,"height":60,"color":"4"},
+		{"id":"490113e83259f287","type":"text","text":"Fasta","x":-1642,"y":-866,"width":107,"height":60,"color":"4"},
+		{"id":"d630372167a28b37","type":"text","text":"A,C,G,T","x":-1469,"y":-896,"width":127,"height":60,"color":"4"},
+		{"id":"e5771bd76217d48f","type":"text","text":" Genome assembly","x":-1625,"y":-497,"width":208,"height":60,"color":"5"},
+		{"id":"99c5825a5f426003","type":"text","text":"Metabarcoding","x":-913,"y":-759,"width":180,"height":50},
+		{"id":"07783288d378285a","type":"text","text":"Sistema Operativo ( Windows ) / Linux  ( BASH ) |  R ( Dada2 ) ","x":-1487,"y":-1002,"width":534,"height":60},
+		{"id":"7abb1a16d48d1a6d","type":"text","text":"Anotacion de genoma","x":-1129,"y":-495,"width":250,"height":60,"color":"4"},
+		{"id":"f285d2fcd2b7a318","x":-1724,"y":-389,"width":113,"height":60,"color":"5","type":"text","text":"Index"},
+		{"id":"32b2b049f14800bc","type":"text","text":"Por Referencia","x":-1542,"y":-339,"width":180,"height":50,"color":"4"},
+		{"id":"d26fed67d3484c3a","type":"text","text":"Consenso de Genoma","x":-1253,"y":-334,"width":234,"height":60,"color":"4"}
+	],
+	"edges":[
+		{"id":"1c33a7199bb6dcf1","fromNode":"84b4b37492c8accd","fromSide":"right","toNode":"4a34b3759864bba8","toSide":"left","color":"4"},
+		{"id":"371e19610a7e69cd","fromNode":"84b4b37492c8accd","fromSide":"right","toNode":"215b2f3cae5ac95a","toSide":"left","color":"4"},
+		{"id":"8c0f99613534e89f","fromNode":"215b2f3cae5ac95a","fromSide":"bottom","toNode":"4a34b3759864bba8","toSide":"top"},
+		{"id":"458e9cf0ab18ae2b","fromNode":"4a34b3759864bba8","fromSide":"top","toNode":"215b2f3cae5ac95a","toSide":"bottom","color":"4","label":"Double check"},
+		{"id":"6e85cd8dd1437900","fromNode":"4a34b3759864bba8","fromSide":"bottom","toNode":"e5771bd76217d48f","toSide":"top","color":"4"},
+		{"id":"5b06da82dfa22e6e","fromNode":"e5771bd76217d48f","fromSide":"bottom","toNode":"32b2b049f14800bc","toSide":"top","color":"4"},
+		{"id":"3a034f1ad52fae15","fromNode":"bbc083137752cc1d","fromSide":"right","toNode":"84b4b37492c8accd","toSide":"left"},
+		{"id":"6771d12534ef1281","fromNode":"32b2b049f14800bc","fromSide":"right","toNode":"d26fed67d3484c3a","toSide":"left","color":"4"},
+		{"id":"b5c9ad645a6109ac","fromNode":"490113e83259f287","fromSide":"bottom","toNode":"84b4b37492c8accd","toSide":"top"},
+		{"id":"6d486a03d4fa93f2","fromNode":"490113e83259f287","fromSide":"right","toNode":"d630372167a28b37","toSide":"bottom"},
+		{"id":"6eb217e77da0808b","fromNode":"4a34b3759864bba8","fromSide":"right","toNode":"99c5825a5f426003","toSide":"left"},
+		{"id":"ac1c64ede6f6d70c","fromNode":"d26fed67d3484c3a","fromSide":"top","toNode":"7abb1a16d48d1a6d","toSide":"bottom","color":"4"},
+		{"id":"fa647ba8df1b5d0e","fromNode":"f285d2fcd2b7a318","fromSide":"top","toNode":"e5771bd76217d48f","toSide":"bottom","color":"4"}
+	]
+}

@@ -1,0 +1,213 @@
+{
+  "main": {
+    "id": "791b53d1dcbe778a",
+    "type": "split",
+    "children": [
+      {
+        "id": "01e0aeacfec55170",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "acffef39c0a5157f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Semana1/Syllabus Análisis bioinformático.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Syllabus Análisis bioinformático"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9da217262897bb75",
+    "type": "split",
+    "children": [
+      {
+        "id": "b0924c9a4013727e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06265de284d3d9a4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de archivos"
+            }
+          },
+          {
+            "id": "956258cbfbd99a82",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Buscar"
+            }
+          },
+          {
+            "id": "5930a9023108d0e7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 241.5
+  },
+  "right": {
+    "id": "b9f8401bf7f82d69",
+    "type": "split",
+    "children": [
+      {
+        "id": "32a722e7a4de4aec",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d277dda28e84d911",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Bioinformatica.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Enlaces entrantes de Bioinformatica"
+            }
+          },
+          {
+            "id": "154576e41ac022f2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Bioinformatica.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes de Bioinformatica"
+            }
+          },
+          {
+            "id": "5828f11f1d2ea64b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "19fce8edfdb83704",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Bioinformatica.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Esquema de Bioinformatica"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "obsidian-advanced-slides:Show Slide Preview": false,
+      "obsidian-excalidraw-plugin:Nuevo Bosquejo": false
+    }
+  },
+  "active": "acffef39c0a5157f",
+  "lastOpenFiles": [
+    "README.md",
+    "Semana1/Fundamentos de Bioinformatica.md",
+    "Semana2/R y Rstudio.md",
+    "Semana7/Workflow.canvas",
+    "Semana1/Syllabus Análisis bioinformático.md",
+    "Semana1/2.Quality.md",
+    "Semana1/3.Trimming.md",
+    "Semana1/4.Assembly.md",
+    "Semana1/1.Intro.md",
+    "Semana7",
+    "Semana6",
+    "Semana5",
+    "Semana4",
+    "Excalidraw/Drawing 2025-08-04 16.28.22.excalidraw.md",
+    "Img/Pasted Image 20250726193403_983.png",
+    "Img/Pasted Image 20250727204720_795.png",
+    "Excalidraw",
+    "Img",
+    "Excalidraw/Drawing 2025-06-06 23.58.07.excalidraw.md",
+    "Semana2",
+    "Semana3",
+    "Organigrama.canvas",
+    "Laboratorio.md",
+    "2025-06-06.md",
+    "Excalidraw/Drawing 2025-07-26 03.59.01.excalidraw.md",
+    "Protocolos/MapaMental.md",
+    "Protocolos/Protocolo 1.md",
+    "Protocolos/Reglas generales.md",
+    "proksee.svg",
+    "Protocolos.md",
+    "Semana1",
+    "Excalidraw/Drawing 2025-06-06 23.42.09.excalidraw.md",
+    "Bioinformatica",
+    "Bioinformatica.md",
+    "Linux.md",
+    "cree un enlace.md",
+    "Bienvenido.md"
+  ]
+}
