@@ -8,11 +8,11 @@
 		{"id":"d630372167a28b37","type":"text","text":"A,C,G,T","x":-1469,"y":-896,"width":127,"height":60,"color":"4"},
 		{"id":"e5771bd76217d48f","type":"text","text":" Genome assembly","x":-1625,"y":-497,"width":208,"height":60,"color":"5"},
 		{"id":"99c5825a5f426003","type":"text","text":"Metabarcoding","x":-913,"y":-759,"width":180,"height":50},
-		{"id":"07783288d378285a","type":"text","text":"Sistema Operativo ( Windows ) / Linux  ( BASH ) |  R ( Dada2 ) ","x":-1487,"y":-1002,"width":534,"height":60},
 		{"id":"7abb1a16d48d1a6d","type":"text","text":"Anotacion de genoma","x":-1129,"y":-495,"width":250,"height":60,"color":"4"},
-		{"id":"f285d2fcd2b7a318","x":-1724,"y":-389,"width":113,"height":60,"color":"5","type":"text","text":"Index"},
+		{"id":"f285d2fcd2b7a318","type":"text","text":"Index","x":-1724,"y":-389,"width":113,"height":60,"color":"5"},
 		{"id":"32b2b049f14800bc","type":"text","text":"Por Referencia","x":-1542,"y":-339,"width":180,"height":50,"color":"4"},
-		{"id":"d26fed67d3484c3a","type":"text","text":"Consenso de Genoma","x":-1253,"y":-334,"width":234,"height":60,"color":"4"}
+		{"id":"d26fed67d3484c3a","type":"text","text":"Consenso de Genoma","x":-1253,"y":-334,"width":234,"height":60,"color":"4"},
+		{"id":"07783288d378285a","type":"text","text":"Sistema Operativo ( Windows ) / Linux  ( BASH ) |  R ( Dada2 ) ","x":-1527,"y":-1006,"width":534,"height":60}
 	],
 	"edges":[
 		{"id":"1c33a7199bb6dcf1","fromNode":"84b4b37492c8accd","fromSide":"right","toNode":"4a34b3759864bba8","toSide":"left","color":"4"},
