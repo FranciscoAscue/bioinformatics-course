@@ -4,24 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "3570a96f5a4cbd1b",
+        "id": "09e9ca8acd2a4aa8",
         "type": "tabs",
         "children": [
           {
-            "id": "d266a4a2a7ef692a",
+            "id": "e18b784584d12291",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Semana1/1. Fundamentos de Bioinformatica.md",
+                "file": "Semana3/1. Estadistica.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1. Fundamentos de Bioinformatica"
+              "title": "1. Estadistica"
+            }
+          },
+          {
+            "id": "831cf59aefd0caad",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Semana2/4. Análisis de algoritmos.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "4. Análisis de algoritmos"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Semana1/1. Fundamentos de Bioinformatica.md",
+                "file": "Semana2/1. Programación.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +117,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Enlaces entrantes de 1. Fundamentos de Bioinformatica"
+              "title": "Enlaces entrantes de 1. Programación"
             }
           },
           {
@@ -113,12 +126,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Semana1/1. Fundamentos de Bioinformatica.md",
+                "file": "Semana2/1. Programación.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Enlaces salientes de 1. Fundamentos de Bioinformatica"
+              "title": "Enlaces salientes de 1. Programación"
             }
           },
           {
@@ -142,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Semana1/1. Fundamentos de Bioinformatica.md",
+                "file": "Semana3/2. Conceptos Clave.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Esquema de 1. Fundamentos de Bioinformatica"
+              "title": "Esquema de 2. Conceptos Clave"
             }
           },
           {
@@ -161,7 +174,8 @@
               "title": "Advanced Tables"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -170,6 +184,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Crear nueva base": false,
       "switcher:Abrir selector rápido": false,
       "graph:Abrir vista gráfica": false,
       "canvas:Crear nuevo lienzo": false,
@@ -181,18 +196,27 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "d266a4a2a7ef692a",
+  "active": "831cf59aefd0caad",
   "lastOpenFiles": [
-    "Semana1/2. Datos y formatos.md",
-    "Semana1/Syllabus Análisis bioinformático.md",
-    "Semana2/1. Programación.md",
-    "Semana2/2. Sintaxis y Pseudocodigo.md",
     "Semana2/3. Problemas y Algoritmos.md",
-    "Semana2/4. Análisis de algoritmos.md",
-    "Semana2/5. Diseño de algoritmos.md",
-    "Img/Pasted Image 20250727204720_795.png",
-    "Img/Pasted Image 20250726193403_983.png",
+    "Semana2/2. Sintaxis y Pseudocodigo.md",
+    "Img/Pasted Image 20250820155037_206.png",
+    "Img/Pasted Image 20250820152850_925.png",
+    "Semana2/1. Programación.md",
+    "Semana1/2. Datos y formatos.md",
     "Semana1/1. Fundamentos de Bioinformatica.md",
+    "Semana2/5. Diseño de algoritmos.md",
+    "Semana2/4. Análisis de algoritmos.md",
+    "Semana1/Syllabus Análisis bioinformático.md",
+    "Semana3/2. Conceptos Clave.md",
+    "Semana3/1. Estadistica.md",
+    "zotero/SummaryJSONJSON.md",
+    "Pasted Image 20250816155308_603.png",
+    "Img/Ficheros_windows.png",
+    "Img/Algoritmo_analisis_ejemplo.png",
+    "Img/Pasted Image 20250727204720_795.png",
+    "Semana2/4. Análisis de algoritmos.restored.md",
+    "zotero",
     "Semana2/Sin título.canvas",
     "Semana2/Fundamentos.md",
     "README.md",
@@ -217,12 +241,7 @@
     "2025-06-06.md",
     "Excalidraw/Drawing 2025-07-26 03.59.01.excalidraw.md",
     "Protocolos/MapaMental.md",
-    "Protocolos/Protocolo 1.md",
-    "Protocolos/Reglas generales.md",
     "proksee.svg",
-    "Protocolos.md",
-    "Semana1",
-    "Excalidraw/Drawing 2025-06-06 23.42.09.excalidraw.md",
-    "Bioinformatica"
+    "Semana1"
   ]
 }

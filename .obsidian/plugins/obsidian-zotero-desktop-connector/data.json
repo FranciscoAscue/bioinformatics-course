@@ -1,0 +1,19 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "zotero",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [
+    {
+      "name": "Vancuver",
+      "format": "formatted-bibliography",
+      "cslStyle": "vancouver"
+    }
+  ],
+  "exportFormats": [],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": false,
+  "whichNotesToOpenAfterImport": "first-imported-note",
+  "port": "23119"
+}
