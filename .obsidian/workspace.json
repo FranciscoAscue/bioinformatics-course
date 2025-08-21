@@ -25,12 +25,14 @@
             "id": "831cf59aefd0caad",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Semana2/4. Análisis de algoritmos.md"
+                "file": "Semana2/3. Problemas y Algoritmos.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "4. Análisis de algoritmos"
+              "icon": "lucide-file",
+              "title": "3. Problemas y Algoritmos"
             }
           }
         ],
@@ -198,7 +200,9 @@
   },
   "active": "831cf59aefd0caad",
   "lastOpenFiles": [
+    "Semana2/4. Análisis de algoritmos.md",
     "Semana2/3. Problemas y Algoritmos.md",
+    "Semana3/1. Estadistica.md",
     "Semana2/2. Sintaxis y Pseudocodigo.md",
     "Img/Pasted Image 20250820155037_206.png",
     "Img/Pasted Image 20250820152850_925.png",
@@ -206,10 +210,8 @@
     "Semana1/2. Datos y formatos.md",
     "Semana1/1. Fundamentos de Bioinformatica.md",
     "Semana2/5. Diseño de algoritmos.md",
-    "Semana2/4. Análisis de algoritmos.md",
     "Semana1/Syllabus Análisis bioinformático.md",
     "Semana3/2. Conceptos Clave.md",
-    "Semana3/1. Estadistica.md",
     "zotero/SummaryJSONJSON.md",
     "Pasted Image 20250816155308_603.png",
     "Img/Ficheros_windows.png",
