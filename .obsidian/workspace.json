@@ -8,15 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "15b9ec1fb10ed17b",
+            "id": "981e9f7d42300515",
             "type": "leaf",
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "Semana3/2. Conceptos Clave.md"
+                "file": "Semana3/3. Filogenia.md"
               },
               "icon": "excalidraw-icon",
-              "title": "2. Conceptos Clave"
+              "title": "3. Filogenia"
             }
           }
         ]
@@ -181,25 +181,30 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "15b9ec1fb10ed17b",
+  "active": "981e9f7d42300515",
   "lastOpenFiles": [
+    "Semana3/2. Conceptos Clave.md",
+    "Semana3/3. Filogenia.md",
+    "Pasted Image 20250827135919_368.png",
+    "Pasted Image 20250827135840_862.png",
+    "Pasted Image 20250827134956_020.png",
+    "Pasted Image 20250827134616_700.png",
+    "Pasted Image 20250827134544_432.png",
+    "Pasted Image 20250827134520_411.png",
+    "Pasted Image 20250827134500_515.png",
+    "Pasted Image 20250827134103_016.png",
+    "Pasted Image 20250827133927_771.png",
+    "Pasted Image 20250827133817_525.png",
     "Semana3/1. Estadistica.md",
     "Semana2/5. Diseño de algoritmos.md",
     "Semana2/4. Análisis de algoritmos.md",
     "Semana2/3. Problemas y Algoritmos.md",
-    "Semana3/2. Conceptos Clave.md",
     "Semana2/2. Sintaxis y Pseudocodigo.md",
-    "Img/Algoritmo_analisis_ejemplo.png",
     "Semana2/1. Programación.md",
-    "Img/Pasted Image 20250820152850_925.png",
-    "Img/Pasted Image 20250820155037_206.png",
-    "Img/Pasted Image 20250727204720_795.png",
-    "Img/Ficheros_windows.png",
     "Semana1/2. Datos y formatos.md",
     "Semana1/1. Fundamentos de Bioinformatica.md",
     "Semana1/Syllabus Análisis bioinformático.md",
     "zotero/SummaryJSONJSON.md",
-    "Pasted Image 20250816155308_603.png",
     "Semana2/4. Análisis de algoritmos.restored.md",
     "zotero",
     "Semana2/Sin título.canvas",
@@ -225,8 +230,6 @@
     "Laboratorio.md",
     "2025-06-06.md",
     "Excalidraw/Drawing 2025-07-26 03.59.01.excalidraw.md",
-    "Protocolos/MapaMental.md",
-    "proksee.svg",
     "Semana1"
   ]
 }
