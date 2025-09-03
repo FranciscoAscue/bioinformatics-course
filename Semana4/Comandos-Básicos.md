@@ -73,7 +73,7 @@ Se utiliza indistintamente para borrar ya sea carpetas o archivos, en el caso de
 ## Mostrar contenido en otra ventana `less`
 
 
-
+## Mas detalles de los archivos `ls -lh`
 
 
 
