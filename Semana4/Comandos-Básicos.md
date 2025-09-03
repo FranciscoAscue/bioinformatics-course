@@ -54,9 +54,17 @@ La lógica para crear directorios internos es simplemente repetir el patrón. Im
 
 Se utiliza indistintamente para borrar ya sea carpetas o archivos, en el caso de carpetas que tienen contenido interno pueden usar la opción `-r` recursivo.
 
+## Instalar programas `apt install`
+
+### Comando sudo 
+
+
+
 ## Copiar `cp`
 
 ## Mover o renombrar`mv` 
+
+## Descomprimir archivos `gunzip`
 
 ## Buscar dentro de archivo `grep` 
 
@@ -64,5 +72,8 @@ Se utiliza indistintamente para borrar ya sea carpetas o archivos, en el caso de
 
 ## Mostrar contenido en otra ventana `less`
 
-## Instalar programas `apt install`
+
+
+
+
 
