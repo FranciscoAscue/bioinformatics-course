@@ -52,4 +52,17 @@ La lógica para crear directorios internos es simplemente repetir el patrón. Im
 
 ## Borrar `rm` 
 
-Se utiliza indistintamente para borrar ya sea carpetas o archivos, en el caso de carpetas que tienen contenido interno pueden usar la opción `-r` recursivo 
+Se utiliza indistintamente para borrar ya sea carpetas o archivos, en el caso de carpetas que tienen contenido interno pueden usar la opción `-r` recursivo.
+
+## Copiar `cp`
+
+## Mover o renombrar`mv` 
+
+## Buscar dentro de archivo `grep` 
+
+## Mostrar contenido `cat`
+
+## Mostrar contenido en otra ventana `less`
+
+## Instalar programas `apt install`
+
