@@ -115,7 +115,29 @@ sed 's/.1 .*/.1/g' z.capensis_mito.fasta > z.capensis_mito_edit.fasta
 
 ## Combinar columnas `paste`
 
+Sirve para juntar documentos por columna: 
 
+```bash
+paste archivo.txt codigos.txt
+paste archivo.txt codigos.txt | sed 's/\t//g' > alumnos.txt
+```
+
+
+### Crear meta data usando pipelines 
+
+```bash
+grep ">" z.capensis_mito.fasta  | sed 's/>//g' | cut -d' ' -f 1,2,3 |  
+sed 's/.1 /.1,/g' > metadata1.csv
+``` 
+
+```bash
+sed 's/mitochondrial/,mitochondrial/g' | sed 's/ p.*//g' > marcador.  
+txt
+```
+
+```bash
+paste metadata1.csv marcador.txt > metadata2.csv
+```
 ## Lenguaje `awk`
 
 
