@@ -213,4 +213,7 @@ En donde
 	`g` al grupo de usuario
 	`o` otros usuarios
 
+## Editor de código en linea de comandos
+
+Vamos a utilizar `nano` que también puede ser ejecutando con el comando `pico`, nos van a permitir editar archivos de forma visual en la terminal. La utilidad es cuando tienen acceso a un servidor por linea de comandos, pueden disponer de estos editores para modificaciones sin recurrir a programas visuales. 
 
