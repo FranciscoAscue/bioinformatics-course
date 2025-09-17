@@ -10,24 +10,34 @@ title: Creación de pipelines
 ![](https://cdn.packtpub.com/article-hub/articles/3756c603b388981ea030241baa0925da.png)
 ### Casos de uso
 
-- **Filtrar registros**: `awk` permite seleccionar líneas que cumplan condiciones sobre ciertos campos. Por ejemplo, para obtener solo las variantes de un VCF cuya profundidad (campo 8) sea mayor que 30:
-    
-    `awk '!/^#/ && $8 ~ /DP=([3-9][0-9]|[1-9][0-9]{2,})/' variantes.vcf`
-    
+- **Filtrar registros**: `awk` permite seleccionar líneas que cumplan condiciones sobre ciertos campos. Por ejemplo, para obtener solo las variantes de un VCF cuya profundidad (campo 8) sea mayor que 30:    
 - **Extraer columnas de un VCF**: para imprimir cromosoma, posición y genotipo (campo 10) de cada variante:
-    
-    `awk '!/^#/ {print $1, $2, $10}' variantes.vcf`
-    
 
+**Comando de Búsqueda**
+```bash
+awk -F',' '$3 ~ /12/' alumnos.txt
+```
+
+**Filtrado con lógica**
+```bash
+awk -F',' '$3 >= 12 && $1 ~ /Flores/' alumnos.txt
+```
+
+**Controlar la impresión de columnas**
+```
+awk -F',' '$3 >= 12 && $2 ~ /Flores/ { print $4" "$1}' alumnos.txt
+```
+
+**Sumar columnas y dividir por el numero de filas**
+```bash
+awk -F',' '{sum+=$3}END{print sum/NR}' alumnos.txt
+```
+
+****
 ### Consejos
 
 - Usa la opción `-F` para definir separadores de campos personalizados (por ejemplo, tabulador con `-F "\t"`).
-    
-- Las variables especiales `NR`, `NF` y `FILENAME` te permiten conocer el número de registro, número de campos y nombre de archivo actual.
-    
 - Puedes encapsular programas awk en archivos (`-f script.awk`) para reutilizar código complejo.
-    
-
 ## Seqtk
 
 `Seqtk` es una herramienta ligera y rápida para procesar secuencias en formato **FASTA** o **FASTQ**. Puede leer archivos comprimidos con gzip y realizar operaciones como conversión de formatos, submuestreo, filtrado por longitud o generación del complemento inverso[hpc.nih.gov](https://hpc.nih.gov/apps/seqtk.html#:~:text=Seqtk%20is%20a%20fast%20and,be%20optionally%20compressed%20by%20gzip).
@@ -35,17 +45,30 @@ title: Creación de pipelines
 ### Comandos útiles
 
 - **Submuestrear lecturas**: seleccionar aleatoriamente el 10 % de lecturas de un archivo FASTQ:
-    
-    `seqtk sample lecturas.fastq 0.10 > subsample.fastq`
-    
+
+```bash
+seqtk sample z.capensis_mito.fasta 0.01
+```
+Pueden verificar que se muestrea 5 fastas : 
+```bash
+seqtk sample z.capensis_mito.fasta 0.01 | grep '>' | wc -l
+```
+
 - **Filtrar por longitud mínima**: extraer solo secuencias de más de 100 pb:
     
-    `seqtk seq -L 100 lecturas.fastq > largas.fastq`
-    
-- **Obtener el complemento inverso**: invertir y complementar las secuencias en un FASTA:
-    
-    `seqtk seq -r genes.fasta > genes_rc.fasta`
-    
+```bash 
+seqtk seq -L 100 z.capensis_mito.fasta
+seqtk seq -L 1000 z.capensis_mito.fasta | seqtk seq -C ## Limpian los codigos
+```
+
+	
+- **Obtener el complemento reverso**: invertir y complementar las secuencias en un FASTA:
+
+```bash
+seqtk seq -r z.capensis_mito.fasta
+grep -A 6 KC693267.1 z.capensis_mito.fasta | seqtk seq -r #Filtrando un solo fasta
+```
+
 
 ### Consejos
 
