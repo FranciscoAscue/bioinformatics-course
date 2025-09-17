@@ -138,9 +138,3 @@ txt
 ```bash
 paste metadata1.csv marcador.txt > metadata2.csv
 ```
-## Lenguaje `awk`
-
-
-
-## Comando `xargs`
-
