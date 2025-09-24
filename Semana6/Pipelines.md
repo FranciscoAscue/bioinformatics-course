@@ -75,8 +75,6 @@ grep -A 6 KC693267.1 z.capensis_mito.fasta | seqtk seq -r #Filtrando un solo fas
 - `seqtk sample` admite números enteros para seleccionar exactamente _n_ secuencias en lugar de una fracción.
     
 - Puedes combinar `seqtk` con tuberías; por ejemplo, generar un submuestreo y filtrar por longitud en un solo comando.
-    
-
 ## Git
 
 `Git` es un sistema de control de versiones que permite a los usuarios registrar **instantáneas** de su trabajo (commits), lo que facilita revisar el progreso, arreglar errores y comprender cuándo y por qué se realizaron cambios [phoenixnap.com](https://phoenixnap.com/kb/git-commit#:~:text=Git%20is%20a%20version%20control,and%20why%20changes%20were%20made). 
@@ -114,29 +112,6 @@ Cuando terminas tu trabajo local y quieres compartir los cambios, `git push` act
 
 Estos comandos te permiten gestionar scripts y notas del curso, compartirlos en un repositorio remoto (por ejemplo, GitHub o GitLab) y mantener un historial claro de tus análisis.
 
-## xargs
-
-`xargs` (abreviatura de _extended arguments_) es una utilidad de UNIX que convierte la entrada estándar en argumentos para un comando. Esto resulta útil cuando una herramienta produce una lista de elementos que otra herramienta sólo acepta como argumentos, por ejemplo, para evitar el error «argument list too long». Algunos comandos (como `grep` o `awk`) pueden leer desde la entrada estándar, pero otros (`cp`, `rm`, `echo`, etc.) necesitan argumentos explícitos.
-
-### Ejemplos
-
-- **Contar secuencias en varios archivos FASTA**: para cada archivo `*.fasta` en el directorio, contar cuántas cabeceras (`>`) tiene:
-    
-    `ls *.fasta | xargs -n 1 -I {} sh -c 'echo -n "{}: "; grep -c ">" {}'`
-    
-- **Convertir múltiples FASTQ a FASTA**: procesar una lista de archivos utilizando `seqtk` en cada uno:
-    
-    `ls *.fastq | xargs -n 1 -I {} seqtk seq -A {} > {}.fasta`
-    
-- **Submuestrear en paralelo**: ejecutar varias instancias de `seqtk sample` en paralelo usando `-P` para especificar el número de procesos simultáneos:
-    
-    `ls *.fastq | xargs -n 1 -P 4 -I {} seqtk sample {} 0.05 > {}_sub.fastq`
-    
-- **Descargar secuencias desde NCBI**: si tienes un archivo `ids.txt` con accesiones, puedes usar `xargs` para llamar a `efetch` repetidamente (requiere tener instalados los scripts de _Entrez_):
-    
-    `cat ids.txt | xargs -n 1 -I {} sh -c 'efetch -db nucleotide -id {} -format fasta >> sequences.fasta'`
-    
-
 ### Consejos
 
 - Usa la opción `-n` para limitar cuántos argumentos se pasan a cada ejecución del comando.
@@ -153,39 +128,27 @@ Los siguientes retos están diseñados para que combines los comandos vistos en 
 1. **Descarga y preparación de un conjunto de secuencias**
     
     - Usa `esearch` para obtener los primeros 20 accesiones del gen 16S de _Escherichia coli_ en la base de datos `nuccore`.
-        
     - Almacena esos IDs en un archivo `ids_16s.txt` (`esearch -db nuccore -query "Escherichia coli[Organism] AND 16S[Gene]" | efetch -format acc > ids_16s.txt`).
-        
     - Usa `xargs` con `efetch` para descargar las secuencias en formato FASTA y guárdalas en `ecoli_16s.fasta`.
-        
     - Comprueba cuántas secuencias descargaste usando `grep -c ">"` o un script `awk`.
-        
 2. **Resumir longitudes de secuencia**
     
     - A partir de `ecoli_16s.fasta`, calcula la longitud de cada secuencia con `awk` y guarda los resultados en un archivo `lengths.txt`.
-        
     - Ordena las longitudes (`sort -n`), usa `uniq -c` para obtener la frecuencia de cada longitud y redirige el resumen a `longitud_frecuencias.txt`.
-        
     - Une el archivo de IDs con el de longitudes utilizando `paste` para crear una tabla de dos columnas (`ID\tLongitud`).
-        
+    
 3. **Anotación y filtrado de GFF**
     
     - Descarga un archivo de anotación GFF3 de NCBI (por ejemplo, de un genoma bacteriano) y descomprímelo.
-        
     - Usa `grep -v "^#"` para eliminar las líneas de cabecera y `awk` para extraer las columnas **cromosoma**, **tipo de característica** y **atributos**.
-        
     - Filtra únicamente las anotaciones de tipo `gene` y guarda los resultados en `genes.tsv`.
-        
     - Extrae los IDs de gen y sus posiciones de inicio y fin usando `cut` o expresiones regulares con `sed`.
-        
 4. **Integración de anotaciones con secuencias**
     
     - Con el archivo `genes.tsv`, selecciona los genes cuya longitud (fin - inicio + 1) sea mayor a 1000 pb usando `awk`.
-        
     - Obtén las secuencias de estos genes a partir del FASTA original mediante `seqtk subseq` (requiere un archivo con regiones en formato BED; puedes generarlo con `awk '{print $1, $2-1, $3}' genes_largos.tsv` y convertirlo a tabulaciones).
-        
     - Utiliza `cut`, `paste` y `awk` para construir un archivo CSV con los campos: **ID del gen**, **longitud**, **producto** (extraído de la columna de atributos) y **secuencia**.
-        
+    
 5. **Análisis de lecturas y calidad**
     
     - Suponiendo que tienes un archivo `lecturas.fastq` con lecturas de Illumina, usa `seqtk seq -A` para convertirlo a FASTA y luego `awk` para calcular la longitud media de las lecturas.
