@@ -79,47 +79,12 @@ grep -A 6 KC693267.1 z.capensis_mito.fasta | seqtk seq -r #Filtrando un solo fas
 
 `Git` es un sistema de control de versiones que permite a los usuarios registrar **instantáneas** de su trabajo (commits), lo que facilita revisar el progreso, arreglar errores y comprender cuándo y por qué se realizaron cambios [phoenixnap.com](https://phoenixnap.com/kb/git-commit#:~:text=Git%20is%20a%20version%20control,and%20why%20changes%20were%20made). 
 
-### Commit
-
-El comando `git commit` crea una instantánea de los archivos que están en el área de preparación (staging) e incluye metadatos como autor, fecha y un mensaje descriptivo[phoenixnap.com](https://phoenixnap.com/kb/git-commit#:~:text=What%20Is%20git%20commit%3F). Un flujo típico es:
-
-`git add archivo1 archivo2   # selecciona los cambios a incluir git commit -m "Descripción de los cambios"`
-
-### Clone
-
-Para iniciar el trabajo con un proyecto existente se usa `git clone`. Este comando clona un repositorio en un directorio nuevo, crea ramas de seguimiento remoto para cada rama del repositorio original y revisa una rama inicial basada en la rama activa del repositorio remoto[git-scm.com](https://git-scm.com/docs/git-clone#:~:text=Clones%20a%20repository%20into%20a,cloned%20repository%E2%80%99s%20currently%20active%20branch). Ejemplo:
-
-`git clone https://github.com/usuario/proyecto.git cd proyecto`
-
-### Push
-
-Cuando terminas tu trabajo local y quieres compartir los cambios, `git push` actualiza las referencias remotas usando las referencias locales y envía los objetos necesarios al servidor remoto[git-scm.com](https://git-scm.com/docs/git-push#:~:text=git,along%20with%20associated%20objects). Un uso común es:
-
-`git push origin main`
-
-### Otros comandos básicos
-
-- `git status`: muestra el estado de los archivos (modificados, sin seguimiento, preparados).
-    
-- `git pull`: actualiza tu copia local combinando los cambios remotos en tu rama actual.
-    
-- `git branch`: lista ramas locales o crea nuevas (`git branch nueva-rama`).
-    
-- `git switch`: cambia de rama (`git switch nombre-rama`) o crea y cambia con `-c`.
-    
-- `git log`: muestra el historial de commits; puedes limitar por fechas o rutas.
-    
-
-Estos comandos te permiten gestionar scripts y notas del curso, compartirlos en un repositorio remoto (por ejemplo, GitHub o GitLab) y mantener un historial claro de tus análisis.
-
-### Consejos
-
-- Usa la opción `-n` para limitar cuántos argumentos se pasan a cada ejecución del comando.
-    
-- La opción `-I {}` permite insertar el argumento en una posición específica dentro de la línea de comando.
-    
-- Con `-P` puedes paralelizar tareas independientes; ideal para aprovechar varios núcleos en análisis de muchos archivos.
-    
+### Incializar un repositorio (local)
+```bash
+git config --global user.name "FranciscoAscue"
+git config --global user.email "correo@gmail.com" 
+git init
+```
 
 ## Ejercicios de pipelines
 
