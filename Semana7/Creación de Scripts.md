@@ -28,6 +28,25 @@ echo "Termino mi script"
 echo "Se creo la carpeta : "$Carpeta
 ```
 
+### Comprimir con contraseña
+
+```bash
+#!/bin/bash  
+  
+##Var  
+Carpeta="Protegidos"  
+Arch="marcador.txt"  
+  
+##Exe  
+mkdir $Carpeta  
+mv $Arch $Carpeta  
+zip -r -e "Protegidos.zip" $Carpeta  
+  
+##Mensaje  
+echo "Se protegio el Archivo"  
+echo "Se creo la Carpeta Protegida"
+```
+
 **Para ejecutarlo**
 
 ```bash
@@ -66,3 +85,23 @@ cd /usr/bin
 sudo ln -s /home/fascue/CURSO/script2.bash .
 ```
 
+### Alias
+
+Permite crear atajos para comando asignándole un alias:
+```bash
+alias lh=ls -lh
+```
+
+Tengan mucho cuidado modificando los archivos como `.bashrc` ya permiten definir diferentes `alias` del sistema pero puede des configurar su usuario.
+
+## Script para bioinformatica
+
+Para ello vamos a crear un proyecto: "Sobre secuencias de ADN de una `especie`"
+Pasos: 
+	Buscar entre 50 a 100 secuencias de ADN de una especie con un marcador molecular
+	Incluir algunas secuencias de una especie relacionada `grupo externo`
+	Descarga con `ncbi-entrez`  `Hacerlos con pipelines en terminal` 
+	Aprender a gestionar archivos fasta con `samtools` y `seqtk`
+	Alineamiento múltiple de secuencias `mafft` `clustal`
+	Filogenia `iqtree2` : Maximun likelihood
+	Editar los arboles con programas como `figtree` y `treeviewer`

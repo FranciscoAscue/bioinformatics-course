@@ -45,7 +45,6 @@ awk -F',' '{sum+=$3}END{print sum/NR}' alumnos.txt
 ### Comandos útiles
 
 - **Submuestrear lecturas**: seleccionar aleatoriamente el 10 % de lecturas de un archivo FASTQ:
-
 ```bash
 seqtk sample z.capensis_mito.fasta 0.01
 ```
