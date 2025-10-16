@@ -98,10 +98,11 @@ Tengan mucho cuidado modificando los archivos como `.bashrc` ya permiten definir
 
 Para ello vamos a crear un proyecto: "Sobre secuencias de ADN de una `especie`"
 Pasos: 
-	Buscar entre 50 a 100 secuencias de ADN de una especie con un marcador molecular
-	Incluir algunas secuencias de una especie relacionada `grupo externo`
-	Descarga con `ncbi-entrez`  `Hacerlos con pipelines en terminal` 
-	Aprender a gestionar archivos fasta con `samtools` y `seqtk`
-	Alineamiento múltiple de secuencias `mafft` `clustal`
-	Filogenia `iqtree2` : Maximun likelihood
-	Editar los arboles con programas como `figtree` y `treeviewer`
+- Buscar entre 50 a 100 secuencias de ADN de una especie con un marcador molecular incluir algunas secuencias de una especie relacionada `grupo externo`
+- Descarga con `ncbi-entrez`  `Hacerlos con pipelines en terminal` 
+- Aprender a gestionar archivos fasta con `samtools` y `seqtk`
+- Alineamiento múltiple de secuencias `mafft` `clustal`
+- Filogenia `iqtree2` : Maximun likelihood
+-  Editar los arboles con programas como `figtree` y `treeviewer`
+
+
