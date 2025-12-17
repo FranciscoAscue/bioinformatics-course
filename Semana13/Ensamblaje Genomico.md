@@ -54,9 +54,8 @@ bowtie2 --end-to-end -p 4 -x index/metamyco -1 ../SRR15616379_1.fastq.gz  -2 ..
 89.79% overall alignment rate
 ```
 
-*Ahora veremos la estructura del archivo SAM*
+*Ahora veremos la estructura del archivo SAM (Sequence Alignmed Mapped)*
 ![[Pasted image 20251216212644.png]]
-
 
 Para poder manipular los archivos tipo SAM usamos la herramienta *samtools*
 
@@ -65,3 +64,31 @@ sudo apt install samtools
 ## conda -c bioconda samtools
 ```
 
+#### Vamos a procesar el archivo SAM 
+
+Para ahorrar espacio espacio comprimimos el archivo SAM a BAM (binary), ademas procedemos a ordenar los alineamientos.
+
+```bash
+samtools view -u@ 2 myco.sam | samtools sort -@ 2 -o myco.sorted.bam -
+```
+
+Finalmente indexamos el archivo resultante: 
+
+```bash 
+samtools index myco.sorted.bam
+```
+
+### Consenso genomico 
+
+```bash
+sudo apt install ivar 
+sudo apt install bcftools
+#conda install -c bioconda ivar
+```
+
+*Procedemos al consenso*
+
+```bash
+samtools mpileup -A -d 0 -Q 0 myco.sorted.bam | ivar consensus -p mycopla  
+sma -q 10 -t 0.6 -n N -m 10
+```
