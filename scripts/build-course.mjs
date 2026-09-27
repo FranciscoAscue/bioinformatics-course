@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { access, readdir, rename, rm, mkdir, writeFile } from 'node:fs/promises'
+import { access, readdir, rename, rm, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { basename, join, resolve } from 'node:path'
 
 const baseFlag = process.argv.indexOf('--base')
@@ -68,6 +68,27 @@ for (const [index, deck] of decks.entries()) {
   }
 }
 
+// GitHub Pages no reescribe rutas de una SPA hacia index.html. Si alguien
+// recarga una diapositiva como /00-silabo/4, el 404 raíz guarda esa URL y
+// vuelve al index del mazo. Este script restaura la ruta antes de iniciar
+// Slidev, manteniendo el sitio completamente estático.
+const restoreRouteScript = `<script>
+(() => {
+  const key = 'slidev:requested-route'
+  const requestedRoute = sessionStorage.getItem(key)
+  if (!requestedRoute) return
+  sessionStorage.removeItem(key)
+  const target = new URL(requestedRoute)
+  history.replaceState(null, '', target.pathname + target.search + target.hash)
+})()
+</script>`
+
+for (const deck of decks) {
+  const indexPath = join(outputRoot, deck.slug, 'index.html')
+  const html = await readFile(indexPath, 'utf8')
+  await writeFile(indexPath, html.replace('</head>', `${restoreRouteScript}\n</head>`), 'utf8')
+}
+
 const cards = decks.map(deck => `
         <a class="card" href="./${deck.slug}/">
           <span>${deck.tag}</span>
@@ -115,6 +136,42 @@ const indexHtml = `<!doctype html>
 `
 
 await writeFile(join(outputRoot, 'index.html'), indexHtml, 'utf8')
+
+const knownDecks = JSON.stringify(decks.map(deck => deck.slug)).replaceAll('<', '\\u003c')
+const fallbackHtml = `<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Abriendo diapositivas…</title>
+  </head>
+  <body>
+    <p>Abriendo diapositivas…</p>
+    <script>
+      (() => {
+        const base = ${JSON.stringify(rootBase)}
+        const decks = ${knownDecks}
+        const relativePath = location.pathname.startsWith(base)
+          ? location.pathname.slice(base.length)
+          : ''
+        const [deck, ...route] = relativePath.split('/').filter(Boolean)
+
+        if (decks.includes(deck) && route.length) {
+          sessionStorage.setItem('slidev:requested-route', location.href)
+          location.replace(base + deck + '/')
+          return
+        }
+
+        location.replace(base)
+      })()
+    </script>
+  </body>
+</html>
+`
+
+await writeFile(join(outputRoot, '404.html'), fallbackHtml, 'utf8')
+await writeFile(join(outputRoot, '.nojekyll'), '', 'utf8')
 
 // Conserva el último sitio funcional mientras se compilan todos los mazos.
 // Solo intercambia directorios cuando el build completo terminó correctamente.

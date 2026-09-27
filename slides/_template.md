@@ -68,10 +68,10 @@ sourceUrl: https://commons.wikimedia.org/
 <div class="template-badge">05 · FIGURA DOMINANTE Y CITADA</div>
 
 <FigureSource
-  src="/images/course/chromatogram.png"
-  alt="Figura local de demostración"
+  src="/images/course/k-mer-diagram.svg"
+  alt="Diagrama local de k-mers"
   caption="Primero observar; después revelar etiquetas."
-  credit="Material local · verificar procedencia antes de publicar"
+  credit="Material local del curso"
 />
 
 ---
