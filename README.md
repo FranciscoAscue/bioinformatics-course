@@ -1,6 +1,7 @@
-# Análisis Bioinformático · UNSAAC
+# bioinformatics-course
 
-Proyecto en [Slidev](https://sli.dev/) - Notas de clases Teoricas / Practicas - para el curso 2026-II.
+Bioinformatics analysis course 2025-II (UNSAAC)
 
-Docente: Francisco Ascue · francisco.ascue@unsaac.edu.pe
+Associate professor : francisco.ascue@unsaac.edu.pe
 
+Bioinformatics with Linux (Bash script and Pipelines in genomics)

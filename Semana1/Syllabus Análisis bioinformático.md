@@ -92,7 +92,7 @@ Relaciona estas competencias con estándares actuales de la bioinformática.
 ## VI. Estrategia Metodológica
 - **Think–pair–share** en clase y mini-proyectos. <!-- element class="fragment" -->
 - **Pair programming** con revisión exprés de scripts. <!-- element class="fragment" -->
-- Proyecto reproducible documentado en **Slidev y Git.** <!-- element class="fragment" -->
+- Proyecto reproducible documentado en **Markdown y Git.** <!-- element class="fragment" -->
 - Evaluación continua mediante test automáticos. <!-- element class="fragment" -->
 
 ---
