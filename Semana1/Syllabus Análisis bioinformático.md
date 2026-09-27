@@ -8,7 +8,7 @@ progress: true
 ---
 
 # Análisis Bioinformático  
-### Socialización del Síllabus 2025-II  
+### Socialización del Síllabus 2026-II  
 _Estudios Específicos Electivos (EEE)_
 
 note:
@@ -35,11 +35,12 @@ Enfatiza que la reproducibilidad y la comunicación clara son ejes transversales
 ## III. Competencia
 El estudiante será capaz de:
 
-- Configurar entornos reproducibles en **Linux.** <!-- element class="fragment" -->
+- Configurar entornos reproducibles en **Linux y Conda.** <!-- element class="fragment" -->
 - Automatizar **pipelines Bash** con control de errores. <!-- element class="fragment" -->
 - Analizar secuencias Sanger y NGS. <!-- element class="fragment" -->
 - Inferir filogenias (ML y Bayes). <!-- element class="fragment" -->
 - Anotar, visualizar e interpretar genomas con rigor estadístico. <!-- element class="fragment" -->
+- Ejecutar e interpretar un flujo introductorio de **docking molecular.** <!-- element class="fragment" -->
 - Comunicar hallazgos de forma ética, reproducible y colaborativa. <!-- element class="fragment" -->
 
 note:
@@ -48,48 +49,50 @@ Relaciona estas competencias con estándares actuales de la bioinformática.
 ---
 
 ## IV. Resultados de Aprendizaje
-1. Configurar entornos Linux y gestionar datos.  
+1. Configurar entornos Linux/Conda y gestionar datos.  
 2. Diseñar y automatizar pipelines en Bash.  
 3. Analizar secuencias desde Sanger hasta NGS.  
 4. Inferir y evaluar filogenias ML/Bayes.  
 5. Ejecutar flujos NGS de extremo a extremo.  
-6. Anotar genomas y comunicar resultados reproducibles.
+6. Anotar genomas, evaluar poses de docking y comunicar resultados reproducibles.
 
 ---
 
 ##  V. Programación de Contenidos
 
 #### Unidad 1 – Intro a Bioinformática y Programación
-| Semana | Tema principal                            |
-| ------ | ----------------------------------------- |
-| 1      | Fundamentos de Bioinformática y Linux     |
-| 2      | Fundamentos de Programación               |
-| 3      | Estadística básica para datos biológicos  |
-| 4-6    | Linux y manipulación de datos (pipelines) |
-| 7      | Scripting bioinformático                  |
-| 8      | **Examen parcial**                        |
+| Semana | Tema principal                               |
+| ------ | -------------------------------------------- |
+| 1      | Fundamentos de Bioinformática y datos        |
+| 2      | Fundamentos de Programación                  |
+| 3      | Estadística básica para datos biológicos     |
+| 4      | Linux y terminal                             |
+| 5      | Conda y entornos reproducibles               |
+| 6      | Manipulación de datos, pipelines y Git       |
+| 7      | Scripting bioinformático                     |
+| 8      | **Examen parcial**                           |
 
 ---
 
 #### Unidad 2 – Secuenciamiento y Análisis Genómico
 
-| Semana | Tema principal       |
-| ------ | -------------------- |
-| 9      | Sanger y consenso    |
-| 10     | MSA y Blast Local    |
-| 11     | Filogenia            |
-| 12     | NGS QC & trimming    |
-| 13     | Mapeo / ensamblaje   |
-| 14     | Variantes & consenso |
-| 15     | Anotación & proyecto |
-| 16     | **Examen final**     |
+| Semana | Tema principal                    |
+| ------ | --------------------------------- |
+| 9      | Sanger y consenso                 |
+| 10     | MSA y BLAST local                 |
+| 11     | Filogenia                         |
+| 12     | NGS, QC y trimming                |
+| 13     | Mapeo y ensamblaje                |
+| 14     | Variantes, consenso y anotación   |
+| 15     | Docking molecular y proyecto      |
+| 16     | **Examen y defensa final**         |
 
 ---
 
 ## VI. Estrategia Metodológica
 - **Think–pair–share** en clase y mini-proyectos. <!-- element class="fragment" -->
 - **Pair programming** con revisión exprés de scripts. <!-- element class="fragment" -->
-- Proyecto **Obsidian en github.** <!-- element class="fragment" -->
+- Proyecto reproducible documentado en **Slidev y Git.** <!-- element class="fragment" -->
 - Evaluación continua mediante test automáticos. <!-- element class="fragment" -->
 
 ---
@@ -125,4 +128,3 @@ Recordar al estudiantado que los artículos están disponibles en la carpeta com
 
 # ¡Gracias!  
 ### Preguntas y comentarios
-

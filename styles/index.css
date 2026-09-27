@@ -1,0 +1,3 @@
+/* El estilo canónico vive junto a las clases para que Slidev lo encuentre
+   tanto al editar un mazo individual como al compilar el índice raíz. */
+@import '../slides/styles/index.css';

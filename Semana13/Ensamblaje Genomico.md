@@ -21,6 +21,11 @@ sudo apt install bowtie2
 ```
 
 #### Preparamos el genoma (indexado)
+
+```bash
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/767/725/GCF_000767725.1_ASM76772v1/GCF_000767725.1_ASM76772v1_genomic.fna.gz
+```
+
 ```bash
 #bowtie2-build GENOMA <Carpeta>/nombre
 mkdir Mapping

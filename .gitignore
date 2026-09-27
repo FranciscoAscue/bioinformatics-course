@@ -1,1 +1,14 @@
-.obsidian/
+node_modules/
+dist/
+.dist-building/
+.dist-previous/
+.slidev/
+*.pdf
+*.pptx
+*.docx
+*.xls
+*.xslx
+*.csv
+*.tsv
+*.xml
+.DS_Store

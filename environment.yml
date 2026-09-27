@@ -1,0 +1,52 @@
+name: bioinfo-2026
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # Python base
+  - python=3.12
+  - pip
+
+  # Manipulación de secuencias y estadísticas
+  - seqkit=2.10
+  - biopython=1.84
+  - pandas=2.2
+  - scipy=1.13
+  - matplotlib=3.9
+  - numpy=2.0
+
+  # Control de calidad y trimming (NGS)
+  - fastqc=0.12
+  - multiqc=1.31
+  - fastp=0.24
+
+  # Alineamiento y bases de datos
+  - blast=2.16
+  - mafft=7.526
+
+  # Mapeo y procesamiento de BAM
+  - bwa=0.7.18
+  - samtools=1.21
+  - bcftools=1.21
+
+  # Ensamblaje
+  - spades=4.0
+  - quast=5.2
+
+  # Filogenia
+  - iqtree=2.3.6
+
+  # Docking
+  - vina=1.2.7
+  - meeko=0.6
+
+  # Utilitarios
+  - seqtk=1.4
+  - ncbi-entrez-direct
+  - wget
+  - git
+
+  # Análisis estadístico
+  - pip:
+      - shellcheck-py
