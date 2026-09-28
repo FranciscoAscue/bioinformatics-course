@@ -126,8 +126,8 @@ const indexHtml = `<!doctype html>
     <header>
       <div class="eyebrow">UNSAAC · 2026-II</div>
       <h1>Análisis Bioinformático</h1>
-      <p>Sílabo completo · semanas 01–16 como plantillas provisionales</p>
-      <nav><a href="https://asvi.org.pe/">Proyectos y datos ↗</a><a href="https://github.com/FranciscoAscue">GitHub ↗</a></nav>
+      <p>Sílabo completo · semanas 01–16</p>
+      <nav><a href="https://asvi.org.pe/projects/">Proyectos y datos ↗</a><a href="https://github.com/FranciscoAscue/bioinformatics-course">GitHub ↗</a></nav>
     </header>
     <main>${cards}
     </main>
