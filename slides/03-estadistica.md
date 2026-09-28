@@ -5,7 +5,7 @@ title: Estadística para bioinformática
 author: Francisco Ascue
 week: Semana 03
 unit: Unidad 1 · Fundamentos
-colorSchema: auto
+colorSchema: dark
 transition: fade-out
 mdc: true
 drawings:

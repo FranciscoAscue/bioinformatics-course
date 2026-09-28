@@ -5,7 +5,7 @@ title: Fundamentos y datos
 author: Francisco Ascue
 week: Semana 01
 unit: Unidad 1 · Fundamentos
-colorSchema: auto
+colorSchema: dark
 transition: fade-out
 mdc: true
 drawings:

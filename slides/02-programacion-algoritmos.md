@@ -5,7 +5,7 @@ title: Programación y algoritmos
 author: Francisco Ascue
 week: Semana 02
 unit: Unidad 1 · Fundamentos
-colorSchema: auto
+colorSchema: dark
 transition: fade-out
 mdc: true
 drawings:
