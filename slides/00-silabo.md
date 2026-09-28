@@ -5,7 +5,7 @@ title: Sílabo · Análisis Bioinformático 2026-II
 author: Francisco Ascue
 week: Sílabo 2026-II
 unit: Estudios Específicos Electivos
-colorSchema: dark
+colorSchema: auto
 transition: fade-out
 mdc: true
 drawings:

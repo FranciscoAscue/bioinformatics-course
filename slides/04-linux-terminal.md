@@ -5,7 +5,7 @@ title: Linux y terminal
 author: Francisco Ascue
 week: Semana 04
 unit: Unidad 1 · Construir el método
-colorSchema: dark
+colorSchema: auto
 transition: fade-out
 mdc: true
 drawings:
