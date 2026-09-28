@@ -5,3 +5,4 @@ dist/
 .dist-previous/
 book.yaml
 bibliography/
+*png
