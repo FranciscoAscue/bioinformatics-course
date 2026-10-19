@@ -25,6 +25,7 @@ layout: theory
 ## stdin, stdout y stderr
 
 ```mermaid
+
 flowchart LR
   A[stdin · 0 · entrada] --> B[Programa]
   B --> C[stdout · 1 · resultado]
@@ -37,7 +38,7 @@ El código de salida indica el estado: **0** suele significar éxito.
 
 ---
 
-## Un pipe conecta dos programas
+## Un pipe conecta dos programas en la terminal
 
 ```bash
 seqkit seq -m 1000 secuencias.fasta | seqkit stats
