@@ -109,7 +109,7 @@ echo "$?"
 layout: theory
 ---
 
-## NCBI: buscar y recuperar secuencias
+## NCBI: buscar y descargar secuencias
 
 Entrez Direct proporciona dos operaciones:
 
