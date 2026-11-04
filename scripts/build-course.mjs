@@ -27,7 +27,8 @@ const allDecks = slideFiles.map(file => {
     slug,
     title: slug.startsWith('00-') ? 'Sílabo del curso' : label,
     tag: slug.slice(0, 2),
-    published: week <= 7,
+    published: week <= 7 || week === 9,
+    externalUrl: week === 8 ? 'http://evaluacion.asvi.org.pe/' : null,
   }
 })
 
@@ -91,11 +92,11 @@ for (const deck of decks) {
   await writeFile(indexPath, html.replace('</head>', `${restoreRouteScript}\n</head>`), 'utf8')
 }
 
-const cards = allDecks.map(deck => deck.published ? `
-        <a class="card" href="./${deck.slug}/">
+const cards = allDecks.map(deck => deck.published || deck.externalUrl ? `
+        <a class="card" href="${deck.externalUrl ?? `./${deck.slug}/`}">
           <span>${deck.tag}</span>
           <strong>${deck.title}</strong>
-          <small>Abrir diapositivas →</small>
+          <small>${deck.externalUrl ? 'Abrir evaluación ↗' : 'Abrir diapositivas →'}</small>
         </a>` : `
         <div class="card pending" aria-disabled="true">
           <span>${deck.tag}</span>
@@ -135,7 +136,7 @@ const indexHtml = `<!doctype html>
     <header>
       <div class="eyebrow">UNSAAC · 2026-II</div>
       <h1>Análisis Bioinformático</h1>
-      <p>Material disponible: sílabo y semanas 01–07</p>
+      <p>Material disponible: sílabo, semanas 01–07 y 09 · parcial en línea</p>
       <nav><a href="https://asvi.org.pe/projects/">Proyectos y datos ↗</a><a href="https://github.com/FranciscoAscue/bioinformatics-course">GitHub ↗</a></nav>
     </header>
     <main>${cards}
