@@ -45,10 +45,34 @@ ASAP.py FR 15.10F_003_C04_2016-05-19.ab1 15.10R_004_D04_2016-05-19.ab1 ASAP/test
 ```
 
 
-## En Practica
+# Verion 2026 - II 
 
-1. Descargar las secuencias de *Faciola hepatica* de su classroom y aplicar ASAP de forma iterativa a todas las muestras. 
-2. Deben juntar las secuencias consenso en un multifasta.
-3. Alinear las secuencias consenso.
-4. Filogenia de las muestras.
+```bash
+sudo apt install clustalw 
+``` 
 
+## exportar las secuencias fasta cada cromatograma (ugene) - (bioedit)
+
+```bash
+seq1_r.fasta (reverso complementario)
+seq2_f.fasta
+```
+
+### opcional - descargan una secuencia de referencia 
+
+```bash
+efetch -db nucleotide -id KX165598.1 -format fasta > KX165598.1.fasta
+```
+### si tienes refencia 
+
+```bash
+cat seq1* KX* > ITS_multi.fasta 
+
+clustalw ITS_multi.fata 
+```
+
+### sale formatos: .aln .dnd 
+
+Puede abrir el formato aln en ugene - (bioedit) - (mega)
+
+Revisan el consenso. 
