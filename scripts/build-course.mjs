@@ -27,7 +27,7 @@ const allDecks = slideFiles.map(file => {
     slug,
     title: slug.startsWith('00-') ? 'Sílabo del curso' : label,
     tag: slug.slice(0, 2),
-    published: week <= 7 || week === 9,
+    published: week <= 7 || week === 9 || week === 10,
     externalUrl: week === 8 ? 'http://evaluacion.asvi.org.pe/' : null,
   }
 })
@@ -136,7 +136,7 @@ const indexHtml = `<!doctype html>
     <header>
       <div class="eyebrow">UNSAAC · 2026-II</div>
       <h1>Análisis Bioinformático</h1>
-      <p>Material disponible: sílabo, semanas 01–07 y 09 · parcial en línea</p>
+      <p>Material disponible: sílabo, semanas 01–07 y 09–10 · parcial en línea</p>
       <nav><a href="https://asvi.org.pe/projects/">Proyectos y datos ↗</a><a href="https://github.com/FranciscoAscue/bioinformatics-course">GitHub ↗</a></nav>
     </header>
     <main>${cards}

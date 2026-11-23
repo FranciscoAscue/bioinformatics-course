@@ -359,16 +359,13 @@ layout: theory
 
 ## Obtener referencias desde NCBI
 
-Ejemplo para el marcador **COI** de *Zonotrichia capensis*:
+Ejemplo de localización genómica de **BRCA2** en el cromosoma 13 humano.
 
 ```bash
-set -o pipefail
-consulta='"Zonotrichia capensis"[Organism] AND COI'
-
-esearch -db nuccore -query "$consulta" \
-  | efetch -format fasta > referencias.fasta
-
-seqkit stats referencias.fasta
+# Descargamos una secuencia de cromosoma 13
+efetch -db nucleotide -id NC_000013.11 -format fasta > NC_000013.11.fasta
+# Descargamos la referencia genómica de BRCA2
+efetch -db nucleotide -id NG_044973.1 -format fasta > NG_044973.1.fasta
 ```
 
 <div class="grid grid-cols-2 gap-4 mt-4">
@@ -376,7 +373,7 @@ seqkit stats referencias.fasta
 <div class="panel">
 <strong>Verificar antes de usar</strong>
 <ul class="mt-2 text-sm">
-  <li>Anotación del marcador en el registro</li>
+  <li>Anotación del gen en el registro</li>
   <li>Región cubierta (inicio, fin, longitud)</li>
   <li>Calidad del depósito (autores, referencia)</li>
 </ul>
@@ -393,216 +390,61 @@ Para identificar una muestra desconocida, incluir también <b>taxones cercanos</
 layout: theory
 ---
 
-## Crear la base y buscar el consenso
+## Localizar BRCA2 con BLAST local
 
 ```bash
 # 1. Crear base de datos BLAST local
 mkdir -p db
-makeblastdb -in referencias.fasta -dbtype nucl -out db/referencias
+makeblastdb -in NC_000013.11.fasta -dbtype nucl -out db/chr13
 
 # 2. Ejecutar la búsqueda
-blastn -query consenso.fasta \
-       -db db/referencias \
-       -out resultados.txt
+blastn -query NG_044973.1.fasta -db db/chr13 -out resultados_brca2.txt
 ```
 
 <div class="grid grid-cols-3 gap-3 mt-4">
 <div class="count" v-click><strong>makeblastdb</strong><small>Indexa las referencias para búsqueda rápida</small></div>
 <div class="count" v-click><strong>blastn</strong><small>Compara la consulta contra esa base local</small></div>
-<div class="count" v-click><strong>resultados.txt</strong><small>Informe con métricas y alineamientos</small></div>
+<div class="count" v-click><strong>resultados_brca2.txt</strong><small>Informe con métricas y alineamientos</small></div>
 </div>
 
 ---
 layout: theory
 ---
 
-## Guardar resultados como tabla (formato 6)
+## Exportar los resultados de BLAST a TSV
 
 ```bash
-blastn -query consenso.fasta -db db/referencias  -outfmt "6 qseqid sseqid pident qcovs evalue bitscore" -out hits.tsv
+blastn -query NG_044973.1.fasta -db db/chr13 \
+  -outfmt '6 qseqid sseqid pident qcovhsp evalue bitscore sstart send sstrand' \
+  -out hits_brca2.tsv
+
+head -n 5 hits_brca2.tsv
 ```
 
-<div class="grid grid-cols-2 gap-5 mt-4">
-
-<div>
-
-| # | Campo | Descripción |
-|---|---|---|
-| 1 | `qseqid` | Identificador de la query |
-| 2 | `sseqid` | Accesión del subject |
-| 3 | `pident` | % identidad |
-| 4 | `qcovs` | % cobertura query |
-| 5 | `evalue` | E-value |
-| 6 | `bitscore` | Bit score |
-
-</div>
-
-<div>
-<div class="warn mt-0" v-click>
-Formato 6 es <b>TSV sin cabecera</b>.<br>
-<small>Puede haber varias filas para una misma referencia (múltiples HSPs).</small>
-</div>
-
-<div class="panel green mt-4" v-click>
-<strong>Cargar en Python:</strong>
-
-```python
-import pandas as pd
-cols = ["qseqid","sseqid","pident",
-        "qcovs","evalue","bitscore"]
-df = pd.read_csv("hits.tsv",
-     sep="\t", names=cols)
-```
-
-</div>
-</div>
-
-</div>
+- El formato 6 usa tabulaciones y no incluye cabecera.
+- Cada fila representa un tramo alineado. Identidad y cobertura corresponden a ese tramo.
+- Las últimas tres columnas indican inicio, fin y hebra en la referencia.
 
 ---
 layout: theory
 ---
 
-## MSA: alineamiento múltiple de secuencias
+## Aplicar el mismo flujo al marcador molecular
 
-<img
-  src="/images/blast/msa-ccdc.png"
-  class="mx-auto rounded-lg"
-  style="max-height:140px; object-fit:contain; background:#fff; padding:4px"
-  alt="Ejemplo de alineamiento múltiple de secuencias"
-/>
+Usa el consenso Sanger como consulta y referencias del mismo marcador, por ejemplo **COI** si corresponde a tu muestra.
 
-<div class="grid grid-cols-3 gap-4 mt-3">
-
-<div class="count" v-click><strong>Filas</strong><small>Cada secuencia del conjunto (muestra + referencias)</small></div>
-<div class="count" v-click><strong>Columnas</strong><small>Posiciones homólogas propuestas por el algoritmo</small></div>
-<div class="count" v-click><strong>Gap <code>-</code></strong><small>Inserción/deleción introducida para mejorar el alineamiento</small></div>
-
-</div>
-
-<div class="warn mt-4" v-click>
-<b>Uso:</b> comparar variación entre taxones y preparar datos para análisis filogenético.<br>
-<small>Un gap puede representar inserción o deleción; el MSA por sí solo no determina cuál ocurrió.</small>
-</div>
-
----
-layout: visual-right
-image: /images/blast/msa-example.png
-fit: contain
-credit: Wikimedia Commons · CC BY-SA
-sourceUrl: https://commons.wikimedia.org/wiki/File:Multiple_Sequence_Alignment_of_the_Human_FAM120AOS_Gene_and_it%27s_Orthologs.png
----
-
-## Seleccionar las secuencias para el MSA
-
-Conservar referencias del **mismo marcador y región**.
-
-<v-clicks>
-
-- Usar identificadores únicos y accesiones verificables.
-- Orientar todas las secuencias en el **mismo sentido**.
-- Retirar primers y extremos de baja calidad.
-- Evitar mezclar fragmentos cortos con genomas completos sin extraer la región.
-
-</v-clicks>
-
-<div class="warn mt-4" v-click>
-Guardar la selección como <code>referencias_region.fasta</code> antes de alinear.
-</div>
-
----
-layout: theory
----
-
-## Alinear con MAFFT
-
-```bash {1-2|4-5|all}
-# Combinar muestra y referencias
-cat consenso.fasta referencias_region.fasta > conjunto.fasta
-
-# Alinear
-mafft --auto conjunto.fasta > alineamiento.fasta 2> mafft.log
+```bash
+makeblastdb -in referencias_marcador.fasta -dbtype nucl -out db/marcador
+blastn -query consenso.fasta -db db/marcador \
+  -outfmt '6 qseqid sseqid pident qcovhsp evalue bitscore' \
+  -out hits_marcador.tsv
 ```
 
-<div class="grid grid-cols-3 gap-4 mt-4">
+Selecciona referencias de la misma región, oriéntalas y reúne sus FASTA con el consenso en `conjunto.fasta`.
 
-<div class="panel" v-click>
-<strong><code>--auto</code></strong>
-<small class="mt-2">Selecciona la estrategia óptima según el número de secuencias y su longitud</small>
-</div>
-
-<div class="panel violet" v-click>
-<strong><code>stdout</code></strong>
-<small class="mt-2">Contiene el alineamiento en formato FASTA. Redirigir a <code>alineamiento.fasta</code></small>
-</div>
-
-<div class="panel amber" v-click>
-<strong><code>stderr</code></strong>
-<small class="mt-2">Mensajes de ejecución y estadísticas. Conservar en <code>mafft.log</code></small>
-</div>
-
-</div>
-
-<p class="muted text-sm mt-3" v-click>Las secuencias alineadas tienen igual número de columnas, contando los gaps introducidos.</p>
-
----
-layout: visual-right
-image: /images/blast/lipase-homology.png
-fit: contain
-credit: Wikimedia Commons · CC BY-SA
-sourceUrl: https://commons.wikimedia.org/wiki/File:Lipase_Sequence_Homology.png
----
-
-## Revisar el MSA visualmente
-
-Abrir `alineamiento.fasta` en **AliView** o **UGENE**.
-
-<v-clicks>
-
-- Comprobar regiones conservadas (columnas uniformes).
-- Identificar extremos desiguales por diferencias de longitud.
-- Revisar secuencias que requieren excesivos gaps.
-- Volver al consenso Sanger ante discrepancias sospechosas.
-
-</v-clicks>
-
-<div class="warn mt-4" v-click>
-<b>Un gap puede representar inserción o deleción;</b> no determina por sí solo cuál ocurrió.
-</div>
-
----
-layout: theory
----
-
-## Recortar sin borrar la evidencia
-
-```text
-Muestra01   ---ATGCCATAGCTA---
-Referencia1 GGGATGCCGTAGCTATTT
-Región común    ATGCC_TAGCTA
+```bash
+mafft --auto conjunto.fasta > alineamiento.fasta
 ```
-
-<div class="grid grid-cols-2 gap-5 mt-4">
-
-<div class="panel">
-<strong>Criterios de recorte</strong>
-<ul class="mt-2 text-sm">
-  <li>Definir una región <b>comparable</b> en todas las secuencias</li>
-  <li>Conservar el alineamiento original y la versión recortada</li>
-  <li>No eliminar columnas variables o con gaps automáticamente</li>
-</ul>
-</div>
-
-<div class="panel amber" v-click>
-<strong>Si el marcador codifica proteína</strong>
-<ul class="mt-2 text-sm">
-  <li>Revisar el marco de lectura y la traducción</li>
-  <li>Un gap de 1 pb interrumpe el marco de lectura</li>
-  <li>Verificar codones de inicio y stop conservados</li>
-</ul>
-</div>
-
-</div>
 
 ---
 layout: theory
@@ -648,7 +490,7 @@ layout: theory
 layout: lab
 ---
 
-## Práctica: del consenso a un alineamiento
+## Práctica · Video del análisis de un marcador
 
 <div class="grid grid-cols-2 gap-6 mt-2">
 
@@ -658,11 +500,11 @@ layout: lab
 
 <v-clicks>
 
-1. Buscar el consenso de clase 09 con **BLAST** (NCBI o local).
-2. Registrar accesiones, identidad y cobertura de las referencias.
-3. Seleccionar secuencias de la misma región e incluir taxones cercanos.
-4. Alinear con **MAFFT** y revisar en AliView o UGENE.
-5. Exportar el MSA y justificar exclusiones o recortes.
+1. Usa las lecturas disponibles en **Classroom** (F/R, solo F o solo R).
+2. Explica tu flujo en **Linux**. Puedes usar UGENE, Python o R.
+3. Descarga de NCBI una referencia FASTA de la misma región del marcador y registra su accesión.
+4. Alinea los FASTA en la misma orientación. Revisa solapamiento, extremos y discrepancias.
+5. Exporta el consenso de tu muestra y explica cómo lo obtuviste.
 
 </v-clicks>
 
@@ -671,17 +513,16 @@ layout: lab
 <div>
 
 <div class="panel green mt-2" v-click>
-<strong>Entrega</strong>
+<strong>Sube el video a Classroom</strong>
 <ul class="text-sm mt-2">
-  <li>Tabla de hits (<code>hits.tsv</code>): accesión, identidad, cobertura</li>
-  <li>FASTA de referencias seleccionadas</li>
-  <li>Alineamiento revisado (<code>alineamiento.fasta</code>)</li>
-  <li>Justificación de exclusiones y recortes</li>
+  <li>Muestra el alineamiento revisado y el FASTA final.</li>
+  <li>Con F/R, genera el consenso en la región respaldada por ambas lecturas.</li>
+  <li>Con una lectura, exporta la secuencia revisada e indica que tiene respaldo en una sola dirección.</li>
 </ul>
 </div>
 
 <div class="warn mt-3" v-click>
-<small>El MSA es el insumo directo del análisis filogenético (clase 11). La calidad del alineamiento determina la calidad del árbol.</small>
+<small>Usa la referencia para comparar. Marca con N las bases de la muestra que queden sin resolver.</small>
 </div>
 
 </div>
