@@ -101,7 +101,8 @@ class: glow-left
 <div class="eyebrow text-lg">Competencia</div>
 
 <div class="text-center items-center justify-center">
-<p class="text-justify font-sans">Competencia del Curso: El estudiante será capaz de: 
+<p class="text-justify font-sans">Competencia del Curso: El estudiante será capaz de:</p>
+<ul class="text-left">
     <v-clicks>
         <li>Configurar entornos reproducibles en Linux.</li>
         <li>Automatizar pipelines Bash con control de errores.</li>
@@ -110,7 +111,7 @@ class: glow-left
         <li>Anotar, visualizar e interpretar datos omicos|Genomicos con rigor estadístico.</li>
         <li>Comunicar hallazgos de forma ética, reproducible y colaborativa.</li>
     </v-clicks>
-</p>
+</ul>
 </div>
 
 ---
@@ -121,7 +122,7 @@ class: glow-right
 <div class="eyebrow text-lg">Resultados de aprendizaje</div>
 <br>
 
-<div class="grid-3">
+<div class="syllabus-results">
   <v-clicks>
   <div class="card"><span class="tag">01</span><h2>Configurar</h2><p>Linux, Conda, datos y versiones.</p></div>
   <div class="card"><span class="tag">02</span><h2>Automatizar</h2><p>Pipelines Bash verificables.</p></div>
@@ -131,6 +132,26 @@ class: glow-right
   <div class="card"><span class="tag">06</span><h2>Comunicar</h2><p>Evidencia, incertidumbre y procedencia.</p></div>
   </v-clicks>
 </div>
+
+<style>
+.syllabus-results {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.syllabus-results .card {
+  background: var(--bio-panel);
+  border: 1px solid var(--bio-line);
+  border-radius: 0.8rem;
+  padding: 0.9rem;
+}
+
+.syllabus-results .tag {
+  color: var(--bio-cyan);
+  font-weight: 700;
+}
+</style>
 
 <!--
 [pausa] Relacionar cada resultado con un producto que se entregará durante el semestre.

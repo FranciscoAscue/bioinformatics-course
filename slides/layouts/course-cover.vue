@@ -24,7 +24,10 @@ const props = withDefaults(defineProps<{
 })
 
 const coverStyle = computed(() => {
-  const source = props.background || `${import.meta.env.BASE_URL}images/course/cover-dna-helix.webp`
+  const background = props.background || '/images/course/cover-dna-helix.webp'
+  const source = background.startsWith('/') && !background.startsWith('//')
+    ? `${import.meta.env.BASE_URL}${background.slice(1)}`
+    : background
   return { '--course-cover-image': `url("${source}")` }
 })
 </script>

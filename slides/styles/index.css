@@ -224,6 +224,17 @@ html.light .slidev-layout.end {
   text-transform: uppercase;
 }
 
+/* Fondos de las diapositivas con énfasis lateral */
+.slidev-layout.glow-left,
+.glow-left .slidev-layout {
+  background-image: radial-gradient(ellipse at left center, color-mix(in srgb, var(--bio-cyan) 16%, transparent), transparent 65%);
+}
+
+.slidev-layout.glow-right,
+.glow-right .slidev-layout {
+  background-image: radial-gradient(ellipse at right center, color-mix(in srgb, var(--bio-violet) 18%, transparent), transparent 65%);
+}
+
 /* Transiciones de revelado progresivo de Slidev (v-click / v-clicks) */
 .slidev-vclick-target {
   transition: opacity 300ms ease, transform 300ms ease;
