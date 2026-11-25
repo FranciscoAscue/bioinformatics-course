@@ -36,10 +36,12 @@ const style = computed(() => ({
 }
 
 .visual-right-layout aside {
+  background-color: #fff;
   background-image: var(--visual-image);
   background-position: var(--visual-position, center);
   background-repeat: no-repeat;
   background-size: var(--visual-fit, contain);
+  border-radius: 0.6rem;
   width: 100%;
   height: 100%;
   min-height: 360px;
